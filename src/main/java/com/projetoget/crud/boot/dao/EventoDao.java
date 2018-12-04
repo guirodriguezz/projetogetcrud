@@ -19,7 +19,7 @@ public interface EventoDao {
     
     List<Evento> findByNome(String nome);
 
-	List<Evento> findByPessoaId(Long id);
+//	List<Evento> findByPessoaId(Long id);
 
 	List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida);
 

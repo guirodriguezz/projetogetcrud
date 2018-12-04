@@ -1,12 +1,9 @@
 package com.projetoget.crud.boot.domain;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,14 +18,18 @@ public class Pessoa extends AbstractEntity<Long> {
 	@Size(max = 60, message = "O nome da pessoa deve conter no máximo 60 caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
-	
+
 	@NotNull(message = "Selecione a turma relativa a pessoa.")
 	@ManyToOne
 	@JoinColumn(name = "id_turma_fk")
 	private Turma turma;
-	
-	@OneToMany(mappedBy = "pessoa")
-	private List<Evento> eventos;
+
+	@ManyToOne
+	@JoinColumn(name = "id_evento_fk")
+	private Evento evento;
+
+//	@OneToMany(mappedBy = "pessoa")
+//	private List<Evento> eventos;
 
 	public String getNome() {
 		return nome;
@@ -46,11 +47,20 @@ public class Pessoa extends AbstractEntity<Long> {
 		this.turma = turma;
 	}
 
-	public List<Evento> getEventos() {
-		return eventos;
+//	public List<Evento> getEventos() {
+//		return eventos;
+//	}
+//
+//	public void setEventos(List<Evento> eventos) {
+//		this.eventos = eventos;
+//	}
+
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setEventos(List<Evento> eventos) {
-		this.eventos = eventos;
-	} 	
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
 }

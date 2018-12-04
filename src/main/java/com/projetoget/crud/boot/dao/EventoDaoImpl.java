@@ -15,11 +15,11 @@ public class EventoDaoImpl extends AbstractDao<Evento, Long> implements EventoDa
 		return createQuery("select e from Evento e where e.nome like concat('%',?1,'%') ", nome);
 	}
 
-	@Override
-	public List<Evento> findByPessoaId(Long id) {
-		
-		return createQuery("select e from Funcionario e where e.cargo.id = ?1", id);
-	}
+//	@Override
+//	public List<Evento> findByPessoaId(Long id) {
+//		
+//		return createQuery("select e from Funcionario e where e.cargo.id = ?1", id);
+//	}
 
 	@Override
 	public List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida) {

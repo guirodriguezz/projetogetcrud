@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.projetoget.crud.boot.domain.Evento;
 import com.projetoget.crud.boot.domain.Pessoa;
 import com.projetoget.crud.boot.domain.Turma;
+import com.projetoget.crud.boot.service.EventoService;
 import com.projetoget.crud.boot.service.PessoaService;
 import com.projetoget.crud.boot.service.TurmaService;
 
@@ -28,6 +30,8 @@ public class PessoaController {
 	private PessoaService pessoaService;
 	@Autowired
 	private TurmaService turmaService;
+	@Autowired
+	private EventoService eventoService;
 
 	@GetMapping("/cadastrar")
 	public String cadastrar(Pessoa pessoa) {
@@ -70,19 +74,31 @@ public class PessoaController {
 		return "redirect:/pessoas/cadastrar";
 	}
 	
+//	@GetMapping("/excluir/{id}")
+//	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+//		if (pessoaService.pessoaTemEventos(id)) {
+//			attr.addFlashAttribute("fail", "Pessoa não excluida. Tem evento(s) vinculado(s).");
+//		} else {
+//			pessoaService.excluir(id);
+//			attr.addFlashAttribute("success", "Pessoa excluida com sucesso.");
+//		}
+//		return "redirect:/pessoas/listar";
+//	}
+	
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
-		if (pessoaService.pessoaTemEventos(id)) {
-			attr.addFlashAttribute("fail", "Pessoa não excluida. Tem evento(s) vinculado(s).");
-		} else {
-			pessoaService.excluir(id);
-			attr.addFlashAttribute("success", "Pessoa excluida com sucesso.");
-		}
+		pessoaService.excluir(id);
+		attr.addFlashAttribute("success", "Pessoa removida com sucesso.");
 		return "redirect:/pessoas/listar";
-	}
+	}	
 	
 	@ModelAttribute("turmas")
 	public List<Turma> listaDeTurmas() {
 		return turmaService.buscarTodos();
-	}	
+	}
+	
+	@ModelAttribute("eventos")
+	public List<Evento> getEventos() {
+		return eventoService.buscarTodos();
+	}
 }

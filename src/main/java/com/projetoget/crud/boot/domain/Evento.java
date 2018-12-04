@@ -2,6 +2,7 @@ package com.projetoget.crud.boot.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -21,31 +22,34 @@ public class Evento extends AbstractEntity<Long> {
 	@Size(max = 255, min = 3)
 	@Column(nullable = false, unique = true)
 	private String nome;
-	
+
 	@NotNull
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
 	private BigDecimal salario;
-	
+
 	@NotNull
 	@PastOrPresent(message = "{PastOrPresent.evento.dataEntrada}")
 	@DateTimeFormat(iso = ISO.DATE, pattern = "")
-	@Column(name= "data_entrada", nullable = false, columnDefinition = "DATE")
+	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
 	private LocalDate dataEntrada;
-	
+
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_saida", columnDefinition = "DATE")
 	private LocalDate dataSaida;
-	
+
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
 	private Endereco endereco;
-	
-	@NotNull(message = "{NotNull.evento.pessoa}")
-	@ManyToOne
-	@JoinColumn(name = "pessoa_id_fk")
-	private Pessoa pessoa;
+
+	@OneToMany(mappedBy = "evento")
+	private List<Pessoa> pessoas;
+
+//	@NotNull(message = "{NotNull.evento.pessoa}")
+//	@ManyToOne
+//	@JoinColumn(name = "pessoa_id_fk")
+//	private Pessoa pessoa;
 
 	public String getNome() {
 		return nome;
@@ -87,11 +91,20 @@ public class Evento extends AbstractEntity<Long> {
 		this.endereco = endereco;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+//	public Pessoa getPessoa() {
+//		return pessoa;
+//	}
+//
+//	public void setPessoa(Pessoa pessoa) {
+//		this.pessoa = pessoa;
+//	}
+
+	public List<Pessoa> getPessoas() {
+		return pessoas;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setPessoas(List<Pessoa> pessoas) {
+		this.pessoas = pessoas;
 	}
+
 }
