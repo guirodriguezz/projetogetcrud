@@ -26,9 +26,9 @@
 	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseNome"
 	                        aria-controls="collapseNome">Nome
 	                </button>
-	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePessoa"
-	                        aria-controls="collapsePessoa">Pessoa
-	                </button>
+<!-- 	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePessoa" -->
+<!-- 	                        aria-controls="collapsePessoa">Pessoa -->
+<!-- 	                </button> -->
 	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseData"
 	                        aria-controls="collapseData">Datas
 	                </button>
@@ -52,15 +52,15 @@
 	                <div class="col">
 	                    <div class="collapse" id="collapsePessoa">
 	
-	                        <nav class="navbar navbar-light bg-light">
-	                            <form class="form-inline" method="GET" th:action="@{/eventos/buscar/pessoa}">
-	                                <select class="form-control mr-sm-2" th:name="id" aria-label="Search">
-	                                    <option value=""></option>
-	                                    <option th:each="p : ${pessoas}" th:value="${p.id}" th:text="${p.nome}"></option>
-	                                </select>
-	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-	                            </form>
-	                        </nav>
+<!-- 	                        <nav class="navbar navbar-light bg-light"> -->
+<!-- 	                            <form class="form-inline" method="GET" th:action="@{/eventos/buscar/pessoa}"> -->
+<!-- 	                                <select class="form-control mr-sm-2" th:name="id" aria-label="Search"> -->
+<!-- 	                                    <option value=""></option> -->
+<!-- 	                                    <option th:each="p : ${pessoas}" th:value="${p.id}" th:text="${p.nome}"></option> -->
+<!-- 	                                </select> -->
+<!-- 	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button> -->
+<!-- 	                            </form> -->
+<!-- 	                        </nav> -->
 	
 	                    </div>
 	                </div>
@@ -94,8 +94,8 @@
 	                        <th>#</th>
 	                        <th th:text="#{tabela.evento.col.nome}">Nome</th>
 	                        <th th:text="#{tabela.evento.col.salario}">Salário</th>
-	                        <th th:text="#{tabela.evento.col.turma}">Departamento</th>
-	                        <th th:text="#{tabela.evento.col.pessoa}">Cargo</th>
+<!-- 	                        <th th:text="#{tabela.evento.col.turma}">Departamento</th> -->
+<!-- 	                        <th th:text="#{tabela.evento.col.pessoa}">Cargo</th> -->
 	                        <th th:text="#{tabela.evento.col.endereco}">Endereço</th>
 	                        <th th:text="#{tabela.evento.col.dataEntrada}">Data de Entrada</th>
 	                        <th th:text="#{tabela.evento.col.dataSaida}">Data de Saída</th>
@@ -107,8 +107,8 @@
 		                        <td th:text="${e.id}">2</td>
 		                        <td th:text="${e.nome}">Ana Maria Lindoval</td>
 		                        <td th:text="|R$ ${{e.salario}}|">R$ 3.560,70</td>
-		                        <td th:text="${e.pessoa.turma.nome}">Administração</td>
-		                        <td th:text="${e.pessoa.nome}">Auxiliar Administrativo</td>
+<!-- 		                        <td th:text="${e.pessoa.turma.nome}">Administração</td> -->
+<!-- 		                        <td th:text="${e.pessoa.nome}">Auxiliar Administrativo</td> -->
 		                        <td>
 		                            <button type="button" class="btn btn-secondary btn-sm" data-container="body"
 		                                    data-toggle="popover" data-placement="top"

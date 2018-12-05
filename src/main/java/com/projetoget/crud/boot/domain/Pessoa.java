@@ -24,9 +24,10 @@ public class Pessoa extends AbstractEntity<Long> {
 	@JoinColumn(name = "id_turma_fk")
 	private Turma turma;
 
-	@ManyToOne
-	@JoinColumn(name = "id_evento_fk")
-	private Evento evento;
+	/*
+	 * @ManyToMany(mappedBy="pessoas, cascade") private List <Evento> eventos = new
+	 * ArrayList<Evento>();
+	 */
 
 //	@OneToMany(mappedBy = "pessoa")
 //	private List<Evento> eventos;
@@ -55,12 +56,12 @@ public class Pessoa extends AbstractEntity<Long> {
 //		this.eventos = eventos;
 //	}
 
-	public Evento getEvento() {
-		return evento;
-	}
-
-	public void setEvento(Evento evento) {
-		this.evento = evento;
-	}
+//	public Evento getEvento() {
+//		return evento;
+//	}
+//
+//	public void setEvento(Evento evento) {
+//		this.evento = evento;
+//	}
 
 }

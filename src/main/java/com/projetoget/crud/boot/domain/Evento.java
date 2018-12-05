@@ -2,11 +2,22 @@ package com.projetoget.crud.boot.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -43,13 +54,22 @@ public class Evento extends AbstractEntity<Long> {
 	@JoinColumn(name = "endereco_id_fk")
 	private Endereco endereco;
 
-	@OneToMany(mappedBy = "evento")
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "pessoa_evento", joinColumns = { @JoinColumn(name = "evento_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "pessoa_id") })
 	private List<Pessoa> pessoas;
 
 //	@NotNull(message = "{NotNull.evento.pessoa}")
 //	@ManyToOne
 //	@JoinColumn(name = "pessoa_id_fk")
 //	private Pessoa pessoa;
+
+	public void cadastrarPessoa(Pessoa pessoa) {
+		if (pessoas == null) {
+			pessoas = new ArrayList<Pessoa>();
+		}
+		pessoas.add(pessoa);
+	}
 
 	public String getNome() {
 		return nome;
