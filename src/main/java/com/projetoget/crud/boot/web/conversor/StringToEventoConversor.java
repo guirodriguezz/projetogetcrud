@@ -4,17 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.projetoget.crud.boot.domain.Pessoa;
-import com.projetoget.crud.boot.service.PessoaService;
+import com.projetoget.crud.boot.domain.Evento;
+import com.projetoget.crud.boot.service.EventoService;
 
 @Component
-public class StringToPessoaConversor implements Converter<String, Pessoa> {
+public class StringToPessoaConversor implements Converter<String, Evento> {
 	
 	@Autowired
-	private PessoaService service;
+	private EventoService service;
 
 	@Override
-	public Pessoa convert(String text) {
+	public Evento convert(String text) {
 		if (text.isEmpty()) {
 			return null;
 		}
