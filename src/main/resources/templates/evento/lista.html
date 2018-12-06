@@ -93,7 +93,7 @@
 	                    <tr>
 	                        <th>#</th>
 	                        <th th:text="#{tabela.evento.col.nome}">Nome</th>
-	                        <th th:text="#{tabela.evento.col.salario}">Salário</th>
+	                        <th th:text="#{tabela.evento.col.valorEntrada}">Salário</th>
 	                        <th th:text="#{tabela.evento.col.turma}">Departamento</th>
 	                        <th th:text="#{tabela.evento.col.pessoa}">Cargo</th>
 	                        <th th:text="#{tabela.evento.col.endereco}">Endereço</th>
@@ -106,7 +106,7 @@
 		                    <tr th:each="e : ${eventos}">
 		                        <td th:text="${e.id}">2</td>
 		                        <td th:text="${e.nome}">Ana Maria Lindoval</td>
-		                        <td th:text="|R$ ${{e.salario}}|">R$ 3.560,70</td>
+		                        <td th:text="|R$ ${{e.valorEntrada}}|">R$ 3.560,70</td>
 		                        <td th:text="${e.pessoa.turma.nome}">Administração</td>
 		                        <td th:text="${e.pessoa.nome}">Auxiliar Administrativo</td>
 		                        <td>

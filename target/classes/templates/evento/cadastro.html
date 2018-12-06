@@ -30,7 +30,7 @@
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome do Evento</label>
-	                        <input type="text" class="form-control" id="nome" placeholder="Nome Completo"
+	                        <input type="text" class="form-control" id="nome" placeholder="Nome Evento"
 	                               autofocus="autofocus" th:field="*{nome}" 
 	                               th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'" />
 	                        <div class="invalid-feedback">
@@ -38,7 +38,7 @@
 	                        </div>
 	                    </div>
 	                    <div class="form-group col-md-6">
-	                        <label for="salario">Salário Bruto</label>
+	                        <label for="salario">Valor da Entrada</label>
 	                        <input type="text" class="form-control" id="salario" data-mask="#.##0,00"
 	                               data-mask-reverse="true" th:field="*{salario}" 
 	                               th:classappend="${#fields.hasErrors('salario')} ? 'is-invalid'" />
@@ -65,19 +65,19 @@
 	                        </div>
 	                    </div>
 	                </div>
-	                <div class="form-row">
-	                    <div class="form-group col-md-6">
-	                        <label for="pessoa">Pessoa</label>
-	                        <select id="pessoa" class="form-control" th:field="*{pessoa}"
-	                                th:classappend="${#fields.hasErrors('pessoa')} ? 'is-invalid'">
-	                            <option value="">Selecione...</option>
-	                            <option th:each="p : ${pessoas}" th:value="${p.id}" th:text="${p.nome}"></option>
-	                        </select>
-	                        <div class="invalid-feedback">
-								<span th:errors="*{pessoa}"></span>
-	                        </div>
-	                    </div>
-	                </div>
+<!-- 	                <div class="form-row"> -->
+<!-- 	                    <div class="form-group col-md-6"> -->
+<!-- 	                        <label for="pessoa">Pessoa</label> -->
+<!-- 	                        <select id="pessoa" class="form-control" th:field="*{pessoa}" -->
+<!-- 	                                th:classappend="${#fields.hasErrors('pessoa')} ? 'is-invalid'"> -->
+<!-- 	                            <option value="">Selecione...</option> -->
+<!-- 	                            <option th:each="p : ${pessoas}" th:value="${p.id}" th:text="${p.nome}"></option> -->
+<!-- 	                        </select> -->
+<!-- 	                        <div class="invalid-feedback"> -->
+<!-- 								<span th:errors="*{pessoa}"></span> -->
+<!-- 	                        </div> -->
+<!-- 	                    </div> -->
+<!-- 	                </div> -->
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="cidade">Cidade</label>

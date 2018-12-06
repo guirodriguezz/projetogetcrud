@@ -25,7 +25,7 @@ public class Evento extends AbstractEntity<Long> {
 
 	@NotNull
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
-	@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
+	@Column(columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
 	private BigDecimal salario;
 
 	@NotNull

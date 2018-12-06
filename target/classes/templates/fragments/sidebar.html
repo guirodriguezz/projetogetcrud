@@ -8,16 +8,16 @@
 							class="oi oi-home"></i> <span th:text="#{sidebar.link.home}"></span>
 					</a></li>
 				</ul>
-
+				
 				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.turma}">Turmas</span></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/turmas/cadastrar}"> <i class="oi oi-plus"></i> 
-						<span th:text="#{sidebar.link.cadastrar}">Cadastrar</span>
+					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.evento}">Eventos</span></li>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/eventos/cadastrar}"> <i class="oi oi-plus"></i> 
+						<span th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/turmas/listar}"> <i class="oi oi-spreadsheet"></i>
-							<span th:text="#{sidebar.link.listar}">Listar </span>
+					<li class="nav-item"><a class="nav-link" 
+						th:href="@{/eventos/listar}"> <i class="oi oi-spreadsheet"></i> 
+						<span th:text="#{sidebar.link.listar}">Listar </span>
 					</a></li>
 				</ul>
 
@@ -33,18 +33,19 @@
 							<span th:text="#{sidebar.link.listar}">Listar </span>
 					</a></li>
 				</ul>
-
+				
 				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.evento}">Eventos</span></li>
-					<li class="nav-item"><a class="nav-link" 
-						th:href="@{/eventos/cadastrar}"> <i class="oi oi-plus"></i> 
-						<span th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
+					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.turma}">Turmas</span></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/turmas/cadastrar}"> <i class="oi oi-plus"></i> 
+						<span th:text="#{sidebar.link.cadastrar}">Cadastrar</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" 
-						th:href="@{/eventos/listar}"> <i class="oi oi-spreadsheet"></i> 
-						<span th:text="#{sidebar.link.listar}">Listar </span>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/turmas/listar}"> <i class="oi oi-spreadsheet"></i>
+							<span th:text="#{sidebar.link.listar}">Listar </span>
 					</a></li>
 				</ul>
+				
 			</nav>
 </body>
 </html>
