@@ -8,7 +8,7 @@ import com.projetoget.crud.boot.domain.Evento;
 import com.projetoget.crud.boot.service.EventoService;
 
 @Component
-public class StringToPessoaConversor implements Converter<String, Evento> {
+public class StringToEventoConversor implements Converter<String, Evento> {
 	
 	@Autowired
 	private EventoService service;
