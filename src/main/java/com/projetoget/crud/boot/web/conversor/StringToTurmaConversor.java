@@ -4,21 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.projetoget.crud.boot.domain.Pessoa;
-import com.projetoget.crud.boot.service.PessoaService;
+import com.projetoget.crud.boot.domain.Turma;
+import com.projetoget.crud.boot.service.TurmaService;
 
 @Component
-public class StringToCargoConversor implements Converter<String, Pessoa> {
-
-	@Autowired
-	private PessoaService service;
+public class StringToTurmaConversor implements Converter<String, Turma> {
 	
+	@Autowired
+	private TurmaService service;
+
 	@Override
-	public Pessoa convert(String text) {
+	public Turma convert(String text) {
 		if (text.isEmpty()) {
 			return null;
 		}
 		Long id = Long.valueOf(text);
 		return service.buscarPorId(id);
 	}
+
 }
