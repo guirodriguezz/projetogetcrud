@@ -41,12 +41,12 @@
 	                    </div>
 	                    
 	                    <div class="form-group col-md-6">
-	                        <label for="salario">Valor da Entrada</label>
-	                        <input type="text" class="form-control" id="salario" data-mask="#.##0,00"
-	                               data-mask-reverse="true" th:field="*{salario}" 
-	                               th:classappend="${#fields.hasErrors('salario')} ? 'is-invalid'" />
+	                        <label for="valorDaEntrada">Valor da Entrada</label>
+	                        <input type="text" class="form-control" id="valorDaEntrada" data-mask="#.##0,00"
+	                               data-mask-reverse="true"  placeholder="Se não tiver valor, colocar 0" th:field="*{valorDaEntrada}" 
+	                               th:classappend="${#fields.hasErrors('valorDaEntrada')} ? 'is-invalid'" />
 	                        <div class="invalid-feedback">
-				        		<span th:errors="*{salario}"></span>	
+				        		<span th:errors="*{valorDaEntrada}"></span>	
 	                        </div>
 	                    </div>
 	                    

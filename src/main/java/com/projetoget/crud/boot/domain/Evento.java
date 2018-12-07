@@ -26,7 +26,7 @@ public class Evento extends AbstractEntity<Long> {
 	@NotNull
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
-	private BigDecimal salario;
+	private BigDecimal valorDaEntrada;
 
 	@NotNull
 	@PastOrPresent(message = "{PastOrPresent.evento.dataEntrada}")
@@ -59,12 +59,12 @@ public class Evento extends AbstractEntity<Long> {
 		this.nome = nome;
 	}
 
-	public BigDecimal getSalario() {
-		return salario;
+	public BigDecimal getValorDaEntrada() {
+		return valorDaEntrada;
 	}
 
-	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
+	public void setValorDaEntrada(BigDecimal valorDaEntrada) {
+		this.valorDaEntrada = valorDaEntrada;
 	}
 
 	public LocalDate getDataEntrada() {
