@@ -64,7 +64,7 @@
 	                    </div>
 	                    
 	                    <div class="form-group col-md-6">
-	                        <label for="horaEvento">hora do Evento</label>
+	                        <label for="horaEvento">Hora do Evento</label>
 	                        <input type="time" class="form-control" id="horaEvento" th:field="*{horaEvento}"
 	                        	   th:classappend="${#fields.hasErrors('horaEvento')} ? 'is-invalid'" />
 	                        <div class="invalid-feedback">
@@ -91,11 +91,11 @@
 	                <div class="form-row">
 	                
 	                    <div class="form-group col-md-6">
-	                        <label for="cidade">Cidade</label>
-	                        <input type="text" class="form-control" id="cidade" th:field="*{endereco.cidade}"
-	                               th:classappend="${#fields.hasErrors('endereco.cidade')} ? 'is-invalid'"/>
+	                        <label for="localEvento">Local do Evento</label>
+	                        <input type="text" class="form-control" id="localEvento" th:field="*{endereco.localEvento}"
+	                               th:classappend="${#fields.hasErrors('endereco.localEvento')} ? 'is-invalid'"/>
 	                        <div class="invalid-feedback">
-								<span th:errors="*{endereco.cidade}" ></span>
+								<span th:errors="*{endereco.localEvento}" ></span>
 	                        </div>
 	                    </div>
 	                    
