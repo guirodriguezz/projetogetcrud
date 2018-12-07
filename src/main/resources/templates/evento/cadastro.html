@@ -27,7 +27,9 @@
 	        
 	            <form th:action="${evento.id == null} ? @{/eventos/salvar} : @{/eventos/editar}" 
 	                  th:object="${evento}" method="POST">
+	                  
 	                <div class="form-row">
+	                
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome do Evento</label>
 	                        <input type="text" class="form-control" id="nome" placeholder="Nome Evento"
@@ -37,6 +39,7 @@
 								<span th:errors="*{nome}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                    <div class="form-group col-md-6">
 	                        <label for="salario">Valor da Entrada</label>
 	                        <input type="text" class="form-control" id="salario" data-mask="#.##0,00"
@@ -46,8 +49,11 @@
 				        		<span th:errors="*{salario}"></span>	
 	                        </div>
 	                    </div>
+	                    
 	                </div>
+	                
 	                <div class="form-row">
+	                
 	                    <div class="form-group col-md-6">
 	                        <label for="dataEntrada">Data de Entrada</label>
 	                        <input type="date" class="form-control" id="dataEntrada" th:field="*{dataEntrada}"
@@ -56,6 +62,7 @@
 								<span th:errors="*{dataEntrada}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                    <div class="form-group col-md-6">
 	                        <label for="dataSaida">Data de Saída</label>
 	                        <input type="date" class="form-control" id="dataSaida" th:field="*{dataSaida}"
@@ -64,7 +71,9 @@
 								<span th:errors="*{dataSaida}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                </div>
+	                
 <!-- 	                <div class="form-row"> -->
 <!-- 	                    <div class="form-group col-md-6"> -->
 <!-- 	                        <label for="pessoa">Pessoa</label> -->
@@ -78,7 +87,9 @@
 <!-- 	                        </div> -->
 <!-- 	                    </div> -->
 <!-- 	                </div> -->
+
 	                <div class="form-row">
+	                
 	                    <div class="form-group col-md-6">
 	                        <label for="cidade">Cidade</label>
 	                        <input type="text" class="form-control" id="cidade" th:field="*{endereco.cidade}"
@@ -87,6 +98,7 @@
 								<span th:errors="*{endereco.cidade}" ></span>
 	                        </div>
 	                    </div>
+	                    
 	                    <div class="form-group col-md-6">
 	                        <label for="logradouro">Logradouro</label>
 	                        <input type="text" class="form-control" id="logradouro" 
@@ -96,8 +108,11 @@
 								<span th:errors="*{endereco.logradouro}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                </div>
+	                
 	                <div class="form-row">
+	                
 	                    <div class="form-group col-md-6">
 	                        <label for="numero">Número</label>
 	                        <input type="text" class="form-control" id="numero" th:field="*{endereco.numero}"
@@ -106,6 +121,7 @@
 			        			<span th:errors="*{endereco.numero}"></span>
 			   				</div>
 	                    </div>
+	                    
 	                    <div class="form-group col-md-6">
 	                        <label for="complemento">Complemento</label>
 	                        <input type="text" class="form-control" id="complemento" 
@@ -115,8 +131,11 @@
 				        		<span th:errors="*{endereco.complemento}"></span>
 				   			</div>	
 	                    </div>
+	                    
 	                </div>
+	                
 	                <div class="form-row">
+	                
 	                    <div class="form-group col-md-6">
 	                        <label for="bairro">Bairro</label>
 	                        <input type="text" class="form-control" id="bairro" th:field="*{endereco.bairro}"
@@ -125,6 +144,7 @@
 								<span th:errors="*{endereco.bairro}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                    <div class="form-group col-md-4">
 	                        <label for="uf">UF</label>
 	                        <select id="uf" class="form-control" th:field="*{endereco.uf}"
@@ -136,6 +156,7 @@
 								<span th:errors="*{endereco.uf}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                    <div class="form-group col-md-2">
 	                        <label for="cep">Cep</label>
 	                        <input type="text" class="form-control" id="cep" data-mask="00000-000" 
@@ -145,10 +166,13 @@
 								<span th:errors="*{endereco.cep}"></span>
 	                        </div>
 	                    </div>
+	                    
 	                </div>
+	                
 	                <input type="hidden" id="id" th:field="*{id}"/>
 					<input type="hidden" id="endereco.id" th:field="*{endereco.id}"/>
 	                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+	                
 	            </form>
 	        </div>
 	    </section>
