@@ -19,7 +19,7 @@ public interface EventoService {
 
 	List<Evento> buscarPorNome(String nome);
 
-	List<Evento> buscarPorDatas(LocalDate entrada, LocalDate saida);
+	List<Evento> buscarPorData(LocalDate dEvento);
 
 	boolean eventoTemPessoas(Long id);
 }

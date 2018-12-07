@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"></head>
+<head>
+<meta charset="UTF-8">
+</head>
 <body>
-			<nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
-				<ul class="nav nav-pills">
-					<li class="nav-item"><a class="nav-link " th:href="@{/}"> <i
-							class="oi oi-home"></i> <span th:text="#{sidebar.link.home}"></span>
-					</a></li>
-				</ul>
-				
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.evento}">Eventos</span></li>
-					<li class="nav-item"><a class="nav-link" 
-						th:href="@{/eventos/cadastrar}"> <i class="oi oi-plus"></i> 
-						<span th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" 
-						th:href="@{/eventos/listar}"> <i class="oi oi-spreadsheet"></i> 
-						<span th:text="#{sidebar.link.listar}">Listar </span>
-					</a></li>
-				</ul>
+	<nav class="sidebar sidebar-open" th:fragment="nav-sidebar">
+		<ul class="nav nav-pills">
+			<li class="nav-item"><a class="nav-link " th:href="@{/eventos/listar}"> <i
+					class="oi oi-home"></i> <span th:text="#{sidebar.link.home}"></span>
+			</a></li>
+		</ul>
 
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.pessoa}">Pessoas</span></li>
-					<li class="nav-item"><a class="nav-link" 
-						th:href="@{/pessoas/cadastrar}"> <i class="oi oi-plus"></i> 
-						<span th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" 
-						th:href="@{/pessoas/listar}"> <i
-							class="oi oi-spreadsheet"></i> 
-							<span th:text="#{sidebar.link.listar}">Listar </span>
-					</a></li>
-				</ul>
-				
-				<ul class="nav nav-pills">
-					<li class="nav-item"><span class="nav-link active" th:text="#{sidebar.titulo.turma}">Turmas</span></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/turmas/cadastrar}"> <i class="oi oi-plus"></i> 
-						<span th:text="#{sidebar.link.cadastrar}">Cadastrar</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/turmas/listar}"> <i class="oi oi-spreadsheet"></i>
-							<span th:text="#{sidebar.link.listar}">Listar </span>
-					</a></li>
-				</ul>
-				
-			</nav>
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active"
+				th:text="#{sidebar.titulo.evento}">Eventos</span></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/eventos/cadastrar}"> <i class="oi oi-plus"></i> <span
+					th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/eventos/listar}"> <i class="oi oi-spreadsheet"></i>
+					<span th:text="#{sidebar.link.listar}">Listar </span>
+			</a></li>
+		</ul>
+
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active"
+				th:text="#{sidebar.titulo.turma}">Turmas</span></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/turmas/cadastrar}"> <i class="oi oi-plus"></i> <span
+					th:text="#{sidebar.link.cadastrar}">Cadastrar</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/turmas/listar}"> <i class="oi oi-spreadsheet"></i> <span
+					th:text="#{sidebar.link.listar}">Listar </span>
+			</a></li>
+		</ul>
+
+		<ul class="nav nav-pills">
+			<li class="nav-item"><span class="nav-link active"
+				th:text="#{sidebar.titulo.pessoa}">Pessoas</span></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/pessoas/cadastrar}"> <i class="oi oi-plus"></i> <span
+					th:text="#{sidebar.link.cadastrar}">Cadastrar </span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				th:href="@{/pessoas/listar}"> <i class="oi oi-spreadsheet"></i>
+					<span th:text="#{sidebar.link.listar}">Listar </span>
+			</a></li>
+		</ul>
+
+	</nav>
 </body>
 </html>

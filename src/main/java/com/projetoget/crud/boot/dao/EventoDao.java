@@ -21,9 +21,9 @@ public interface EventoDao {
 
 //	List<Evento> findByPessoaId(Long id);
 
-	List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida);
+//	List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida);
 
-	List<Evento> findByDataEntrada(LocalDate entrada);
+	List<Evento> findByDataEvento(LocalDate dEvento);
 
-	List<Evento> findByDataSaida(LocalDate saida);
+	List<Evento> findByHoraEvento(LocalDate hEvento);
 }

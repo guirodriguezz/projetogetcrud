@@ -55,20 +55,20 @@
 	                <div class="form-row">
 	                
 	                    <div class="form-group col-md-6">
-	                        <label for="dataEntrada">Data de Entrada</label>
-	                        <input type="date" class="form-control" id="dataEntrada" th:field="*{dataEntrada}"
-	                        	   th:classappend="${#fields.hasErrors('dataEntrada')} ? 'is-invalid'" />
+	                        <label for="dataEvento">Data do Evento</label>
+	                        <input type="date" class="form-control" id="dataEvento" th:field="*{dataEvento}"
+	                        	   th:classappend="${#fields.hasErrors('dataEvento')} ? 'is-invalid'" />
 	                        <div class="invalid-feedback">
-								<span th:errors="*{dataEntrada}"></span>
+								<span th:errors="*{dataEvento}"></span>
 	                        </div>
 	                    </div>
 	                    
 	                    <div class="form-group col-md-6">
-	                        <label for="dataSaida">Data de Saída</label>
-	                        <input type="date" class="form-control" id="dataSaida" th:field="*{dataSaida}"
-	                        	   th:classappend="${#fields.hasErrors('dataSaida')} ? 'is-invalid'" />
+	                        <label for="horaEvento">hora do Evento</label>
+	                        <input type="time" class="form-control" id="horaEvento" th:field="*{horaEvento}"
+	                        	   th:classappend="${#fields.hasErrors('horaEvento')} ? 'is-invalid'" />
 	                        <div class="invalid-feedback">
-								<span th:errors="*{dataSaida}"></span>
+								<span th:errors="*{horaEvento}"></span>
 	                        </div>
 	                    </div>
 	                    

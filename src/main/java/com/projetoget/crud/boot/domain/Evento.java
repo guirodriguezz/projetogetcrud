@@ -2,6 +2,7 @@ package com.projetoget.crud.boot.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.*;
@@ -29,14 +30,14 @@ public class Evento extends AbstractEntity<Long> {
 	private BigDecimal valorDaEntrada;
 
 	@NotNull
-	@PastOrPresent(message = "{PastOrPresent.evento.dataEntrada}")
 	@DateTimeFormat(iso = ISO.DATE, pattern = "")
-	@Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
-	private LocalDate dataEntrada;
+	@Column(name = "data_evento", nullable = false, columnDefinition = "DATE")
+	private LocalDate dataEvento;
 
-	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_saida", columnDefinition = "DATE")
-	private LocalDate dataSaida;
+	@NotNull
+	@DateTimeFormat(iso = ISO.TIME, pattern = "")
+	@Column(name = "hora_evento", columnDefinition = "TIME")
+	private LocalTime horaEvento;
 
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
@@ -67,20 +68,20 @@ public class Evento extends AbstractEntity<Long> {
 		this.valorDaEntrada = valorDaEntrada;
 	}
 
-	public LocalDate getDataEntrada() {
-		return dataEntrada;
+	public LocalDate getDataEvento() {
+		return dataEvento;
 	}
 
-	public void setDataEntrada(LocalDate dataEntrada) {
-		this.dataEntrada = dataEntrada;
+	public void setDataEvento(LocalDate dataEvento) {
+		this.dataEvento = dataEvento;
 	}
 
-	public LocalDate getDataSaida() {
-		return dataSaida;
+	public LocalTime getHoraEvento() {
+		return horaEvento;
 	}
 
-	public void setDataSaida(LocalDate dataSaida) {
-		this.dataSaida = dataSaida;
+	public void setHoraEvento(LocalTime horaEvento) {
+		this.horaEvento = horaEvento;
 	}
 
 	public Endereco getEndereco() {

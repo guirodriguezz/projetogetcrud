@@ -9,9 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.projetoget.crud.boot.domain.Evento;
 import com.projetoget.crud.boot.domain.UF;
 import com.projetoget.crud.boot.service.EventoService;
-import com.projetoget.crud.boot.web.validator.EventoValidator;
 
 @Controller
 @RequestMapping("/eventos")
@@ -33,10 +30,10 @@ public class EventoController {
 //	@Autowired
 //	private PessoaService pessoaService;
 
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(new EventoValidator());
-	}
+//	@InitBinder
+//	public void initBinder(WebDataBinder binder) {
+//		binder.addValidators(new EventoValidator());
+//	}
 
 	@GetMapping("/cadastrar")
 	public String cadastrar(Evento evento) {
@@ -99,10 +96,10 @@ public class EventoController {
 	}
 
 	@GetMapping("/buscar/data")
-	public String getPorDatas(@RequestParam("entrada") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entrada,
-			@RequestParam("saida") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate saida, ModelMap model) {
+	public String getPorData(@RequestParam("dEvento") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dEvento,
+			ModelMap model) {
 
-		model.addAttribute("eventos", eventoService.buscarPorDatas(entrada, saida));
+		model.addAttribute("eventos", eventoService.buscarPorData(dEvento));
 		return "evento/lista";
 	}
 

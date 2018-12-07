@@ -21,31 +21,31 @@ public class EventoDaoImpl extends AbstractDao<Evento, Long> implements EventoDa
 //		return createQuery("select e from Funcionario e where e.cargo.id = ?1", id);
 //	}
 
+//	@Override
+//	public List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida) {
+//		String jpql = new StringBuilder("select e from Evento e ")
+//				.append("where e.dataEntrada >= ?1 and e.dataSaida <= ?2 ")
+//				.append("order by e.dataEntrada asc")
+//				.toString();
+//		return createQuery(jpql, entrada, saida);
+//	}
+
 	@Override
-	public List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida) {
+	public List<Evento> findByDataEvento(LocalDate dEvento) {
 		String jpql = new StringBuilder("select e from Evento e ")
-				.append("where e.dataEntrada >= ?1 and e.dataSaida <= ?2 ")
-				.append("order by e.dataEntrada asc")
+				.append("where e.dataEvento = ?1 ")
+				.append("order by e.dataEvento asc")
 				.toString();
-		return createQuery(jpql, entrada, saida);
+		return createQuery(jpql, dEvento);
 	}
 
 	@Override
-	public List<Evento> findByDataEntrada(LocalDate entrada) {
+	public List<Evento> findByHoraEvento(LocalDate hEvento) {
 		String jpql = new StringBuilder("select e from Evento e ")
-				.append("where e.dataEntrada = ?1 ")
-				.append("order by e.dataEntrada asc")
+				.append("where e.horaEvento = ?1 ")
+				.append("order by e.horaEvento asc")
 				.toString();
-		return createQuery(jpql, entrada);
-	}
-
-	@Override
-	public List<Evento> findByDataSaida(LocalDate saida) {
-		String jpql = new StringBuilder("select e from Evento e ")
-				.append("where e.dataSaida = ?1 ")
-				.append("order by e.dataEntrada asc")
-				.toString();
-		return createQuery(jpql, saida);
+		return createQuery(jpql, hEvento);
 	}	
 	
 }

@@ -61,13 +61,9 @@ public class EventoServiceImpl implements EventoService {
 //	}
 
 	@Override
-	public List<Evento> buscarPorDatas(LocalDate entrada, LocalDate saida) {
-		if (entrada != null && saida != null) {
-			return dao.findByDataEntradaDataSaida(entrada, saida);
-		} else if (entrada != null) {
-			return dao.findByDataEntrada(entrada);
-		} else if (saida != null) {
-			return dao.findByDataSaida(saida);
+	public List<Evento> buscarPorData(LocalDate dEvento) {
+		if (dEvento != null) {
+			return dao.findByDataEvento(dEvento);
 		} else {
 			return new ArrayList<>();
 		}
