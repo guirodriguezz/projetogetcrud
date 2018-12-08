@@ -54,21 +54,7 @@
 	                </div>
 	            </div>
 				<div class="row">
-<!-- 	                <div class="col"> -->
-<!-- 	                    <div class="collapse" id="collapsePessoa"> -->
-	
-<!-- 	                        <nav class="navbar navbar-light bg-light"> -->
-<!-- 	                            <form class="form-inline" method="GET" th:action="@{/eventos/buscar/pessoa}"> -->
-<!-- 	                                <select class="form-control mr-sm-2" th:name="id" aria-label="Search"> -->
-<!-- 	                                    <option value=""></option> -->
-<!-- 	                                    <option th:each="p : ${pessoas}" th:value="${p.id}" th:text="${p.nome}"></option> -->
-<!-- 	                                </select> -->
-<!-- 	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button> -->
-<!-- 	                            </form> -->
-<!-- 	                        </nav> -->
-	
-<!-- 	                    </div> -->
-<!-- 	                </div> -->
+				
 	            </div>
 	            <div class="row">
 	                <div class="col">
@@ -78,8 +64,6 @@
 	                            <form class="form-inline" method="GET" th:action="@{/eventos/buscar/data}">
 	                                <input class="form-control mr-sm-2" type="date" aria-label="Search"
 	                                       th:name="dEvento" />
-<!-- 	                                <input class="form-control mr-sm-2" type="date" aria-label="Search" -->
-<!-- 	                                       th:name="saida" /> -->
 	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
 	                            </form>
 	                        </nav>
@@ -118,8 +102,6 @@
 		                        <td th:text="${e.nome}">Ana Maria Lindoval</td>
 		                        <td th:text="${e.endereco.tipoEvento.descricao}">Ana Maria Lindoval</td>
 		                        <td th:text="|R$ ${{e.valorDaEntrada}}|">R$ 3.560,70</td>
-<!-- 		                        <td th:text="${e.pessoa.turma.nome}">Administração</td> -->
-<!-- 		                        <td th:text="${e.pessoa.nome}">Auxiliar Administrativo</td> -->
 		                        <td>
 		                            <button type="button" class="btn btn-secondary btn-sm" data-container="body"
 		                                    data-toggle="popover" data-placement="top"

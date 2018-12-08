@@ -24,6 +24,8 @@ public class Evento extends AbstractEntity<Long> {
 	@Column(nullable = false, unique = true)
 	private String nome;
 
+	// Valor de entrada tem validação própria que se encontra em ValidationMessages.
+
 	@NotNull(message = "{NotNull.evento.valorDaEntrada}")
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
@@ -38,19 +40,18 @@ public class Evento extends AbstractEntity<Long> {
 	@DateTimeFormat(iso = ISO.TIME, pattern = "")
 	@Column(name = "hora_evento", columnDefinition = "TIME")
 	private LocalTime horaEvento;
+	
+	//Mapeamento entre tabela "Endereço".
 
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
 	private Endereco endereco;
+	
+	//Mapeamento entre evento e pessoas.
 
 	@OneToMany(mappedBy = "evento")
 	private List<Pessoa> pessoas;
-
-//	@NotNull(message = "{NotNull.evento.pessoa}")
-//	@ManyToOne
-//	@JoinColumn(name = "pessoa_id_fk")
-//	private Pessoa pessoa;
 
 	public String getNome() {
 		return nome;
@@ -91,14 +92,6 @@ public class Evento extends AbstractEntity<Long> {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
-//	public Pessoa getPessoa() {
-//		return pessoa;
-//	}
-//
-//	public void setPessoa(Pessoa pessoa) {
-//		this.pessoa = pessoa;
-//	}
 
 	public List<Pessoa> getPessoas() {
 		return pessoas;

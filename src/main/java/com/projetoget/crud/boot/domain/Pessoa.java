@@ -14,22 +14,26 @@ import javax.validation.constraints.Size;
 @Table(name = "PESSOAS")
 public class Pessoa extends AbstractEntity<Long> {
 
+	// Nome tem validação própria que se encontra em ValidationMessages.
+
 	@NotBlank(message = "O nome da pessoa é obrigatório.")
 	@Size(max = 60, message = "O nome da pessoa deve conter no máximo 60 caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
+
+	// Turma também tem validação própria que se encontra em ValidationMessages.
+	// Mapeamento entre pessoa e turma.
 
 	@NotNull(message = "Selecione a turma relativa a pessoa.")
 	@ManyToOne
 	@JoinColumn(name = "id_turma_fk")
 	private Turma turma;
 
+	// Mapeamento entre pessoa e evento.
+
 	@ManyToOne
 	@JoinColumn(name = "id_evento_fk")
 	private Evento evento;
-
-//	@OneToMany(mappedBy = "pessoa")
-//	private List<Evento> eventos;
 
 	public String getNome() {
 		return nome;
@@ -46,14 +50,6 @@ public class Pessoa extends AbstractEntity<Long> {
 	public void setTurma(Turma turma) {
 		this.turma = turma;
 	}
-
-//	public List<Evento> getEventos() {
-//		return eventos;
-//	}
-//
-//	public void setEventos(List<Evento> eventos) {
-//		this.eventos = eventos;
-//	}
 
 	public Evento getEvento() {
 		return evento;

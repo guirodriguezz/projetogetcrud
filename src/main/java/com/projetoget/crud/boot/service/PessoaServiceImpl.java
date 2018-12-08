@@ -45,11 +45,4 @@ public class PessoaServiceImpl implements PessoaService {
 		return dao.findAll();
 	}
 
-//	@Override
-//	public boolean pessoaTemEventos(Long id) {
-//		if (buscarPorId(id).getEventos().isEmpty()) {
-//			return false;
-//		}
-//		return true;
-//	}
 }

@@ -53,13 +53,10 @@ public class EventoServiceImpl implements EventoService {
 
 		return dao.findByNome(nome);
 	}
-
-//	@Override
-//	public List<Evento> buscarPorPessoa(Long id) {
-//
-//		return dao.findByPessoaId(id);
-//	}
-
+	
+	
+	// Método para realizar busca por data no banco.
+	
 	@Override
 	public List<Evento> buscarPorData(LocalDate dEvento) {
 		if (dEvento != null) {
@@ -68,6 +65,8 @@ public class EventoServiceImpl implements EventoService {
 			return new ArrayList<>();
 		}
 	}
+	
+	// Método para, através do ID, ligar evento a pessoas no banco.
 
 	@Override
 	public boolean eventoTemPessoas(Long id) {

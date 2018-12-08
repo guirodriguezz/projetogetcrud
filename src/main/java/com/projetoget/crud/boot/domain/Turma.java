@@ -10,11 +10,15 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "TURMAS")
 public class Turma extends AbstractEntity<Long> {
+	
+	// Nome da turma tem validação própria que se encontra em ValidationMessages.
 
 	@NotBlank(message = "Informe uma turma.")
 	@Size(min = 3, max = 60, message = "O nome da turma deve ter entre {min} e {max} caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
+	
+	// Mapeamento entre turma e pessoas.
 	
 	@OneToMany(mappedBy = "turma")
 	private List<Pessoa> pessoas;

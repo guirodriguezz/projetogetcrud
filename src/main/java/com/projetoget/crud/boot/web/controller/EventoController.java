@@ -27,13 +27,6 @@ public class EventoController {
 
 	@Autowired
 	private EventoService eventoService;
-//	@Autowired
-//	private PessoaService pessoaService;
-
-//	@InitBinder
-//	public void initBinder(WebDataBinder binder) {
-//		binder.addValidators(new EventoValidator());
-//	}
 
 	@GetMapping("/cadastrar")
 	public String cadastrar(Evento evento) {
@@ -76,13 +69,6 @@ public class EventoController {
 		return "redirect:/eventos/cadastrar";
 	}
 
-//	@GetMapping("/excluir/{id}")
-//	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
-//		eventoService.excluir(id);
-//		attr.addFlashAttribute("success", "Evento removido com sucesso.");
-//		return "redirect:/eventos/listar";
-//	}	
-
 	@GetMapping("/buscar/nome")
 	public String getPorNome(@RequestParam("nome") String nome, ModelMap model) {
 		model.addAttribute("eventos", eventoService.buscarPorNome(nome));
@@ -102,6 +88,8 @@ public class EventoController {
 		model.addAttribute("eventos", eventoService.buscarPorData(dEvento));
 		return "evento/lista";
 	}
+	
+	// Método que utiliza objeto criado na service para excluir evento sem pessoas vinculadas.
 
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
@@ -115,11 +103,8 @@ public class EventoController {
 
 		return listar(model);
 	}
-
-//	@ModelAttribute("pessoas")
-//	public List<Pessoa> getPessoas() {
-//		return pessoaService.buscarTodos();
-//	}
+	
+	//Método chamado no Thymeleaf para trazer a lista de tipos de evento.
 
 	@ModelAttribute("tiposEvento")
 	public TiposDeEvento[] getTipo() {

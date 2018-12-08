@@ -11,41 +11,26 @@ import com.projetoget.crud.boot.domain.Evento;
 public class EventoDaoImpl extends AbstractDao<Evento, Long> implements EventoDao {
 
 	public List<Evento> findByNome(String nome) {
-		
+
 		return createQuery("select e from Evento e where e.nome like concat('%',?1,'%') ", nome);
 	}
-
-//	@Override
-//	public List<Evento> findByPessoaId(Long id) {
-//		
-//		return createQuery("select e from Funcionario e where e.cargo.id = ?1", id);
-//	}
-
-//	@Override
-//	public List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida) {
-//		String jpql = new StringBuilder("select e from Evento e ")
-//				.append("where e.dataEntrada >= ?1 and e.dataSaida <= ?2 ")
-//				.append("order by e.dataEntrada asc")
-//				.toString();
-//		return createQuery(jpql, entrada, saida);
-//	}
+	
+	//Método para realziar busca por data do evento, no banco.
 
 	@Override
 	public List<Evento> findByDataEvento(LocalDate dEvento) {
-		String jpql = new StringBuilder("select e from Evento e ")
-				.append("where e.dataEvento = ?1 ")
-				.append("order by e.dataEvento asc")
-				.toString();
+		String jpql = new StringBuilder("select e from Evento e ").append("where e.dataEvento = ?1 ")
+				.append("order by e.dataEvento asc").toString();
 		return createQuery(jpql, dEvento);
 	}
+	
+	//Método para realziar busca por data do evento, no banco (Não utilizado).
 
 	@Override
 	public List<Evento> findByHoraEvento(LocalDate hEvento) {
-		String jpql = new StringBuilder("select e from Evento e ")
-				.append("where e.horaEvento = ?1 ")
-				.append("order by e.horaEvento asc")
-				.toString();
+		String jpql = new StringBuilder("select e from Evento e ").append("where e.horaEvento = ?1 ")
+				.append("order by e.horaEvento asc").toString();
 		return createQuery(jpql, hEvento);
-	}	
-	
+	}
+
 }

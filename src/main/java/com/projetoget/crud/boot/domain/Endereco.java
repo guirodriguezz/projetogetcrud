@@ -22,16 +22,22 @@ public class Endereco extends AbstractEntity<Long> {
 	@Size(min = 3, max = 255)
 	@Column(nullable = false)
 	private String localEvento;
+	
+	// Tipo de Evento tem uma validação própria que se encontra em ValidationMessages.
 
 	@NotNull(message = "{NotNull.endereco.tipoEvento}")
 	@Column(nullable = false, length = 2)
 	@Enumerated(EnumType.STRING)
 	private TiposDeEvento tipoEvento;
+	
+	// A validação do tamanho do campo de CEP também se encontra em ValidationMessages.
 
 	@NotBlank
 	@Size(min = 9, max = 9, message = "{Size.endereco.cep}")
 	@Column(nullable = false, length = 9)
 	private String cep;
+	
+	// Numero também tem uma validação própria que se encontra em ValidationMessages.
 
 	@NotNull(message = "{NotNull.endereco.numero}")
 	@Digits(integer = 5, fraction = 0)
