@@ -33,7 +33,7 @@
 
 					<div class="form-group col-md-6">
 						<label for="nome">Nome do Evento</label> <input type="text"
-							class="form-control" id="nome" placeholder="Nome Evento"
+							class="form-control" id="nome" placeholder="Ex.: Evento Bandtec"
 							autofocus="autofocus" th:field="*{nome}"
 							th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'" />
 						<div class="invalid-feedback">
@@ -45,7 +45,7 @@
 						<label for="valorDaEntrada">Valor da Entrada</label> <input
 							type="text" class="form-control" id="valorDaEntrada"
 							data-mask="#.##0,00" data-mask-reverse="true"
-							placeholder="Se não tiver valor, colocar 0"
+							placeholder="Ex.: 5,00"
 							th:field="*{valorDaEntrada}"
 							th:classappend="${#fields.hasErrors('valorDaEntrada')} ? 'is-invalid'" />
 						<div class="invalid-feedback">
@@ -95,7 +95,7 @@
 
 					<div class="form-group col-md-6">
 						<label for="localEvento">Local do Evento</label> <input
-							type="text" class="form-control" id="localEvento"
+							type="text" class="form-control" id="localEvento" placeholder="Ex.: Digital Building"
 							th:field="*{endereco.localEvento}"
 							th:classappend="${#fields.hasErrors('endereco.localEvento')} ? 'is-invalid'" />
 						<div class="invalid-feedback">
@@ -105,7 +105,7 @@
 
 					<div class="form-group col-md-6">
 						<label for="rua">Rua</label> <input type="text"
-							class="form-control" id="rua" placeholder="rua sem número"
+							class="form-control" id="rua" placeholder="Rua sem número"
 							th:field="*{endereco.rua}"
 							th:classappend="${#fields.hasErrors('endereco.rua')} ? 'is-invalid'" />
 						<div class="invalid-feedback">
@@ -129,7 +129,7 @@
 					<div class="form-group col-md-6">
 						<label for="complemento">Complemento</label> <input type="text"
 							class="form-control" id="complemento"
-							placeholder="fundos, casa, AP. 102, .."
+							placeholder="Ex.: Andar, Sala, 102..."
 							th:field="*{endereco.complemento}"
 							th:classappend="${#fields.hasErrors('endereco.complemento')} ? 'is-invalid'" />
 						<div class="invalid-feedback">
@@ -143,7 +143,7 @@
 
 					<div class="form-group col-md-6">
 						<label for="bairro">Bairro</label> <input type="text"
-							class="form-control" id="bairro" th:field="*{endereco.bairro}"
+							class="form-control" id="bairro" th:field="*{endereco.bairro}" placeholder="Ex.: Cerqueira César"
 							th:classappend="${#fields.hasErrors('endereco.bairro')} ? 'is-invalid'" />
 						<div class="invalid-feedback">
 							<span th:errors="*{endereco.bairro}"></span>
@@ -152,7 +152,7 @@
 
 					<div class="form-group col-md-2">
 						<label for="cep">Cep</label> <input type="text"
-							class="form-control" id="cep" data-mask="00000-000"
+							class="form-control" id="cep" data-mask="00000-000" 
 							th:field="*{endereco.cep}"
 							th:classappend="${#fields.hasErrors('endereco.cep')} ? 'is-invalid'" />
 						<div class="invalid-feedback">

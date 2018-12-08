@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @Table(name = "TURMAS")
 public class Turma extends AbstractEntity<Long> {
 
-	@NotBlank(message = "Informe um nome.")
+	@NotBlank(message = "Informe uma turma.")
 	@Size(min = 3, max = 60, message = "O nome da turma deve ter entre {min} e {max} caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;

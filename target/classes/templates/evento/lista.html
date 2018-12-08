@@ -29,12 +29,12 @@
 	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseNome"
 	                        aria-controls="collapseNome">Nome
 	                </button>
-	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePessoa"
-	                        aria-controls="collapsePessoa">Pessoa
-	                </button>
+	                
 	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseData"
 	                        aria-controls="collapseData">Datas
 	                </button>
+	                
+	                 <a class="btn btn-primary btn-md" th:href="@{/eventos/listar}">Limpar</a>
 	            </p>
 	            
 	            
@@ -103,8 +103,6 @@
 	                        <th th:text="#{tabela.evento.col.nome}">Nome</th>
 	                        <th th:text="#{tabela.evento.col.endereco.tipoEvento.descricao}">Tipo do Evento</th>
 	                        <th th:text="#{tabela.evento.col.valorDaEntrada}">Valor da Entrada</th>
-	                        <th th:text="#{tabela.evento.col.turma}">Departamento</th>
-	                        <th th:text="#{tabela.evento.col.pessoa}">Cargo</th>
 	                        <th th:text="#{tabela.evento.col.endereco}">Endereço</th>
 	                        <th th:text="#{tabela.evento.col.dataEvento}">Data do Evento</th>
 	                        <th th:text="#{tabela.evento.col.horaEvento}">Hora do Evento</th>

@@ -24,7 +24,7 @@ public class Evento extends AbstractEntity<Long> {
 	@Column(nullable = false, unique = true)
 	private String nome;
 
-	@NotNull
+	@NotNull(message = "{NotNull.evento.valorDaEntrada}")
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
 	@Column(columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
 	private BigDecimal valorDaEntrada;
