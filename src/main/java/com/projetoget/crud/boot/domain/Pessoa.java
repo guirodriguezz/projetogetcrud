@@ -30,7 +30,8 @@ public class Pessoa extends AbstractEntity<Long> {
 	private Turma turma;
 
 	// Mapeamento entre pessoa e evento.
-
+	
+	@NotNull(message = "Selecione um evento.")
 	@ManyToOne
 	@JoinColumn(name = "id_evento_fk")
 	private Evento evento;
