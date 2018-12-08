@@ -11,7 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Component
 public class MyErrorView implements ErrorViewResolver {
-
+	
+	// Classe responsavél por mostrar erros na tela para o usuário.
+	
 	@Override
 	public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, Map<String, Object> map) {
 		

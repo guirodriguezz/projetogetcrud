@@ -11,42 +11,48 @@ public class Endereco extends AbstractEntity<Long> {
 	@NotBlank
 	@Size(min = 3, max = 255)
 	@Column(nullable = false)
-	private String logradouro;
-	
+	private String rua;
+
 	@NotBlank
 	@Size(min = 3, max = 255)
 	@Column(nullable = false)
 	private String bairro;
-	
+
 	@NotBlank
 	@Size(min = 3, max = 255)
 	@Column(nullable = false)
-	private String cidade;
+	private String localEvento;
 	
-	@NotNull(message = "{NotNull.endereco.uf}")
+	// Tipo de Evento tem uma validação própria que se encontra em ValidationMessages.
+
+	@NotNull(message = "{NotNull.endereco.tipoEvento}")
 	@Column(nullable = false, length = 2)
 	@Enumerated(EnumType.STRING)
-	private UF uf;
+	private TiposDeEvento tipoEvento;
 	
+	// A validação do tamanho do campo de CEP também se encontra em ValidationMessages.
+
 	@NotBlank
 	@Size(min = 9, max = 9, message = "{Size.endereco.cep}")
 	@Column(nullable = false, length = 9)
 	private String cep;
 	
+	// Numero também tem uma validação própria que se encontra em ValidationMessages.
+
 	@NotNull(message = "{NotNull.endereco.numero}")
 	@Digits(integer = 5, fraction = 0)
 	@Column(nullable = false, length = 5)
 	private Integer numero;
-	
+
 	@Size(max = 255)
 	private String complemento;
 
-	public String getLogradouro() {
-		return logradouro;
+	public String getRua() {
+		return rua;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setRua(String rua) {
+		this.rua = rua;
 	}
 
 	public String getBairro() {
@@ -57,20 +63,20 @@ public class Endereco extends AbstractEntity<Long> {
 		this.bairro = bairro;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getLocalEvento() {
+		return localEvento;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setLocalEvento(String localEvento) {
+		this.localEvento = localEvento;
 	}
 
-	public UF getUf() {
-		return uf;
+	public TiposDeEvento getTipoEvento() {
+		return tipoEvento;
 	}
 
-	public void setUf(UF uf) {
-		this.uf = uf;
+	public void setTipoEvento(TiposDeEvento tipoEvento) {
+		this.tipoEvento = tipoEvento;
 	}
 
 	public String getCep() {

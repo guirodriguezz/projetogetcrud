@@ -1,12 +1,9 @@
 package com.projetoget.crud.boot.domain;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -17,18 +14,26 @@ import javax.validation.constraints.Size;
 @Table(name = "PESSOAS")
 public class Pessoa extends AbstractEntity<Long> {
 
+	// Nome tem validação própria que se encontra em ValidationMessages.
+
 	@NotBlank(message = "O nome da pessoa é obrigatório.")
 	@Size(max = 60, message = "O nome da pessoa deve conter no máximo 60 caracteres.")
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
-	
+
+	// Turma também tem validação própria que se encontra em ValidationMessages.
+	// Mapeamento entre pessoa e turma.
+
 	@NotNull(message = "Selecione a turma relativa a pessoa.")
 	@ManyToOne
 	@JoinColumn(name = "id_turma_fk")
 	private Turma turma;
-	
-	@OneToMany(mappedBy = "pessoa")
-	private List<Evento> eventos;
+
+	// Mapeamento entre pessoa e evento.
+
+	@ManyToOne
+	@JoinColumn(name = "id_evento_fk")
+	private Evento evento;
 
 	public String getNome() {
 		return nome;
@@ -46,11 +51,12 @@ public class Pessoa extends AbstractEntity<Long> {
 		this.turma = turma;
 	}
 
-	public List<Evento> getEventos() {
-		return eventos;
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setEventos(List<Evento> eventos) {
-		this.eventos = eventos;
-	} 	
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
 }

@@ -63,6 +63,8 @@ public class TurmaController {
 		return "redirect:/turmas/cadastrar";
 	}
 	
+	// Método que utiliza objeto da service, para excluir turma sem pessoas.
+	
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
 		

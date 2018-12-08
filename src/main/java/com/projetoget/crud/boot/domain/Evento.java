@@ -2,6 +2,8 @@ package com.projetoget.crud.boot.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -21,31 +23,35 @@ public class Evento extends AbstractEntity<Long> {
 	@Size(max = 255, min = 3)
 	@Column(nullable = false, unique = true)
 	private String nome;
-	
-	@NotNull
+
+	// Valor de entrada tem validação própria que se encontra em ValidationMessages.
+
+	@NotNull(message = "{NotNull.evento.valorDaEntrada}")
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00")
-	@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
-	private BigDecimal salario;
-	
+	@Column(columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
+	private BigDecimal valorDaEntrada;
+
 	@NotNull
-	@PastOrPresent(message = "{PastOrPresent.evento.dataEntrada}")
 	@DateTimeFormat(iso = ISO.DATE, pattern = "")
-	@Column(name= "data_entrada", nullable = false, columnDefinition = "DATE")
-	private LocalDate dataEntrada;
+	@Column(name = "data_evento", nullable = false, columnDefinition = "DATE")
+	private LocalDate dataEvento;
+
+	@NotNull
+	@DateTimeFormat(iso = ISO.TIME, pattern = "")
+	@Column(name = "hora_evento", columnDefinition = "TIME")
+	private LocalTime horaEvento;
 	
-	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_saida", columnDefinition = "DATE")
-	private LocalDate dataSaida;
-	
+	//Mapeamento entre tabela "Endereço".
+
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id_fk")
 	private Endereco endereco;
 	
-	@NotNull(message = "{NotNull.evento.pessoa}")
-	@ManyToOne
-	@JoinColumn(name = "pessoa_id_fk")
-	private Pessoa pessoa;
+	//Mapeamento entre evento e pessoas.
+
+	@OneToMany(mappedBy = "evento")
+	private List<Pessoa> pessoas;
 
 	public String getNome() {
 		return nome;
@@ -55,28 +61,28 @@ public class Evento extends AbstractEntity<Long> {
 		this.nome = nome;
 	}
 
-	public BigDecimal getSalario() {
-		return salario;
+	public BigDecimal getValorDaEntrada() {
+		return valorDaEntrada;
 	}
 
-	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
+	public void setValorDaEntrada(BigDecimal valorDaEntrada) {
+		this.valorDaEntrada = valorDaEntrada;
 	}
 
-	public LocalDate getDataEntrada() {
-		return dataEntrada;
+	public LocalDate getDataEvento() {
+		return dataEvento;
 	}
 
-	public void setDataEntrada(LocalDate dataEntrada) {
-		this.dataEntrada = dataEntrada;
+	public void setDataEvento(LocalDate dataEvento) {
+		this.dataEvento = dataEvento;
 	}
 
-	public LocalDate getDataSaida() {
-		return dataSaida;
+	public LocalTime getHoraEvento() {
+		return horaEvento;
 	}
 
-	public void setDataSaida(LocalDate dataSaida) {
-		this.dataSaida = dataSaida;
+	public void setHoraEvento(LocalTime horaEvento) {
+		this.horaEvento = horaEvento;
 	}
 
 	public Endereco getEndereco() {
@@ -87,11 +93,12 @@ public class Evento extends AbstractEntity<Long> {
 		this.endereco = endereco;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public List<Pessoa> getPessoas() {
+		return pessoas;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	public void setPessoas(List<Pessoa> pessoas) {
+		this.pessoas = pessoas;
 	}
+
 }

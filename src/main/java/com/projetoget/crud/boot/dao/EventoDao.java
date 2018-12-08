@@ -6,24 +6,20 @@ import java.util.List;
 import com.projetoget.crud.boot.domain.Evento;
 
 public interface EventoDao {
-    
+
 	void save(Evento evento);
 
-    void update(Evento evento);
+	void update(Evento evento);
 
-    void delete(Long id);
+	void delete(Long id);
 
-    Evento findById(Long id);
+	Evento findById(Long id);
 
-    List<Evento> findAll();
-    
-    List<Evento> findByNome(String nome);
+	List<Evento> findAll();
 
-	List<Evento> findByPessoaId(Long id);
+	List<Evento> findByNome(String nome);
 
-	List<Evento> findByDataEntradaDataSaida(LocalDate entrada, LocalDate saida);
+	List<Evento> findByDataEvento(LocalDate dEvento);
 
-	List<Evento> findByDataEntrada(LocalDate entrada);
-
-	List<Evento> findByDataSaida(LocalDate saida);
+	List<Evento> findByHoraEvento(LocalDate hEvento);
 }

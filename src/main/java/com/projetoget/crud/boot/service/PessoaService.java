@@ -16,5 +16,4 @@ public interface PessoaService {
 	
 	List<Pessoa> buscarTodos();
 	
-	boolean pessoaTemEventos(Long id);
 }

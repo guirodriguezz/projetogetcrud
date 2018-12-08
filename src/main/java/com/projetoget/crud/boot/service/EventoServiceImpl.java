@@ -14,7 +14,7 @@ import com.projetoget.crud.boot.domain.Evento;
 @Service
 @Transactional(readOnly = true)
 public class EventoServiceImpl implements EventoService {
-	
+
 	@Autowired
 	private EventoDao dao;
 
@@ -38,38 +38,41 @@ public class EventoServiceImpl implements EventoService {
 
 	@Override
 	public Evento buscarPorId(Long id) {
-		
+
 		return dao.findById(id);
 	}
 
 	@Override
 	public List<Evento> buscarTodos() {
-		
+
 		return dao.findAll();
 	}
 
 	@Override
 	public List<Evento> buscarPorNome(String nome) {
-		
+
 		return dao.findByNome(nome);
 	}
-
+	
+	
+	// Método para realizar busca por data no banco.
+	
 	@Override
-	public List<Evento> buscarPorPessoa(Long id) {
-		
-		return dao.findByPessoaId(id);
+	public List<Evento> buscarPorData(LocalDate dEvento) {
+		if (dEvento != null) {
+			return dao.findByDataEvento(dEvento);
+		} else {
+			return new ArrayList<>();
+		}
 	}
+	
+	// Método para, através do ID, ligar evento a pessoas no banco.
 
 	@Override
-    public List<Evento> buscarPorDatas(LocalDate entrada, LocalDate saida) {
-	    if (entrada != null && saida != null) {	    	
-            return dao.findByDataEntradaDataSaida(entrada, saida);
-        } else if (entrada != null) {        	
-	        return dao.findByDataEntrada(entrada);
-        } else if (saida != null) {        	
-	        return dao.findByDataSaida(saida);
-        } else {
-        	return new ArrayList<>();
-        }
-    }
+	public boolean eventoTemPessoas(Long id) {
+		if (buscarPorId(id).getPessoas().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
 }

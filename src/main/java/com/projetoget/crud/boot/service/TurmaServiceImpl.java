@@ -46,6 +46,8 @@ public class TurmaServiceImpl implements TurmaService {
 		
 		return dao.findAll();
 	}
+	
+	// Método para ligar, através do ID, turma com pessoas. 
 
 	@Override
 	public boolean turmaTemPessoas(Long id) {
