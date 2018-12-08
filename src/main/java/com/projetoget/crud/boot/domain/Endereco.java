@@ -11,7 +11,7 @@ public class Endereco extends AbstractEntity<Long> {
 	@NotBlank
 	@Size(min = 3, max = 255)
 	@Column(nullable = false)
-	private String logradouro;
+	private String rua;
 
 	@NotBlank
 	@Size(min = 3, max = 255)
@@ -23,10 +23,10 @@ public class Endereco extends AbstractEntity<Long> {
 	@Column(nullable = false)
 	private String localEvento;
 
-	@NotNull(message = "{NotNull.endereco.uf}")
+	@NotNull(message = "{NotNull.endereco.tipoEvento}")
 	@Column(nullable = false, length = 2)
 	@Enumerated(EnumType.STRING)
-	private UF uf;
+	private TiposDeEvento tipoEvento;
 
 	@NotBlank
 	@Size(min = 9, max = 9, message = "{Size.endereco.cep}")
@@ -41,12 +41,12 @@ public class Endereco extends AbstractEntity<Long> {
 	@Size(max = 255)
 	private String complemento;
 
-	public String getLogradouro() {
-		return logradouro;
+	public String getRua() {
+		return rua;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setRua(String rua) {
+		this.rua = rua;
 	}
 
 	public String getBairro() {
@@ -65,12 +65,12 @@ public class Endereco extends AbstractEntity<Long> {
 		this.localEvento = localEvento;
 	}
 
-	public UF getUf() {
-		return uf;
+	public TiposDeEvento getTipoEvento() {
+		return tipoEvento;
 	}
 
-	public void setUf(UF uf) {
-		this.uf = uf;
+	public void setTipoEvento(TiposDeEvento tipoEvento) {
+		this.tipoEvento = tipoEvento;
 	}
 
 	public String getCep() {

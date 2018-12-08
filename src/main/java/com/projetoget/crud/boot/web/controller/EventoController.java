@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.projetoget.crud.boot.domain.Evento;
-import com.projetoget.crud.boot.domain.UF;
+import com.projetoget.crud.boot.domain.TiposDeEvento;
 import com.projetoget.crud.boot.service.EventoService;
 
 @Controller
@@ -121,8 +121,8 @@ public class EventoController {
 //		return pessoaService.buscarTodos();
 //	}
 
-	@ModelAttribute("ufs")
-	public UF[] getUFs() {
-		return UF.values();
+	@ModelAttribute("tiposEvento")
+	public TiposDeEvento[] getTipo() {
+		return TiposDeEvento.values();
 	}
 }
