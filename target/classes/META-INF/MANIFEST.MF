@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-Built-By: guiro
-Build-Jdk: 10.0.2
 Implementation-Title: crudeventos
 Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Faculdade
 Implementation-Vendor-Id: com.crud.eventos
+Build-Jdk: 1.8.0_192
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/crudeventos
 Created-By: Maven Integration for Eclipse
